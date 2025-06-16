@@ -1,69 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff;
+    background-image: url("BINI.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 2rem;
-  }
-  h1 {
+    padding: 20px;
+    font-family: sans-serif;
+    position: relative;
+    color: aliceblue;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
     text-align: center;
-    color: #d63384;
-    margin-bottom: 2rem;
-  }
-  .video-card {
+    color: #D63384;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+h3.subtitle {
+    text-align: center;
+    margin: 0 auto 30px;
+    max-width: 800px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.video-item {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    background-color: #fafafa;
-  }
-  .video-card img {
-    width: 280px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    flex: 0 0 280px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.video-thumbnail img {
+    width: 100%;
     height: auto;
-    border-radius: 10px;
-    margin-right: 1.5rem;
-    flex-shrink: 0;
-  }
-  .video-info {
+    border: 4px double #D63384;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail img:hover {
+    transform: scale(1.03);
+}
+
+.video-content {
     flex: 1;
     min-width: 250px;
-  }
-  .video-title {
-    font-size: 1.4rem;
+}
+
+.video-content h3 {
+    margin-top: 0;
+    color: #D63384;
+    font-size: 1.5rem;
+}
+
+.video-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.video-duration {
     font-weight: bold;
-    color: #8a2be2;
-    margin-bottom: 0.5rem;
-  }
-  .video-description {
-    margin-bottom: 0.8rem;
-  }
-  .video-duration {
-    font-style: italic;
-    color: #555;
-  }
-  @media (max-width: 768px) {
-    .video-card {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    color: #D63384;
+}
+
+@media (max-width: 768px) {
+    .video-item {
+        flex-direction: column;
     }
-    .video-card img {
-      margin-right: 0;
-      margin-bottom: 1rem;
-      width: 100%;
+    
+    .video-thumbnail {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
     }
-  }
-  img.bordered {
-    border: 4px solid red;
-    border-radius: 50px;
-  }
-  
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h3.subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .video-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .video-thumbnail {
+        max-width: 100%;
+    }
+}
